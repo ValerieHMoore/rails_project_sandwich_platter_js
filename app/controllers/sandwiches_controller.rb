@@ -21,6 +21,18 @@ class SandwichesController < ApplicationController
         @sandwich = Sandwich.find_by(id: params[:id])
     end
 
+    def grilled
+        @sandwiches = Sandwich.grilled
+    end
+
+    def toasted
+        @sandwiches = Sandwich.toasted
+    end
+
+    def open_faced
+        @sandwiches = Sandwich.open_faced
+    end
+    
     def update
         @sandwich = Sandwich.find_by(id: params[:id])
         @sandwich.update(sandwich_params)
