@@ -4,16 +4,19 @@ body{
 }
 
 .sandwich-index{
+    color: green;
     background-image: url("sandwich-index.jpg");
     background-size: cover;
 }
 
 .open-faced{
+    color: white;
     background-image: url("open-face-sandwich2.jpg");
     background-size: cover;
 }
 
 .grilled{
+    color: red;
     background-image: url("grilled-sandwich2.jpg");
     background-size: cover;
 }
