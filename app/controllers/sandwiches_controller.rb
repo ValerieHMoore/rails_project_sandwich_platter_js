@@ -38,8 +38,11 @@ class SandwichesController < ApplicationController
     private
 
     def sandwich_params
-        params.require(:sandwich).permit(:name, :id, :toast, :grill, :open_face, filling_attributes:[:name], sandwich_filling_attributes:[:quantity])
+        params.require(:sandwich).permit(
+            :sandwich_name, :grill, :open_face,
+            fillings_attributes:[:filling_name],
+            sandwich_fillings_attributes:[:quantity])
     end
-    
+
 end
 

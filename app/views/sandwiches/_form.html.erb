@@ -1,5 +1,5 @@
 <%= form_for @sandwich do |f|%>
-<h2>
+<h3>
 <p>
   <%= f.label :sandwich_name, 'Name Your Sandwich:' %>
   <%= f.text_field :sandwich_name %>
@@ -7,8 +7,6 @@
 <p>
   <%= f.label :grill, "Grill It" %>
   <%= f.check_box :grill %>
-</p>
-<p>
   <%= f.label :open_face, "Make it Open Face" %>
   <%= f.check_box :open_face %>
 </p>
@@ -16,7 +14,41 @@
   <%= f.label :bread_name, "What kind of bread?" %>
   <%= f.text_field :bread_name %>
 </p>
+    <p>
+    <%= f.fields_for :fillings do |filling| %>
+    <%= filling.label :filling_name, "Spread/Filling #1" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #2" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #3" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #4" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #5" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #6" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #7" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <p>
+    <%= filling.label :filling_name, "Spread/Filling #8" %>
+    <%= filling.text_field :filling_name %>
+    </p>
+    <% end %>
 
   <%= f.submit %>
-</h2>
+</h3>
 <% end %>
