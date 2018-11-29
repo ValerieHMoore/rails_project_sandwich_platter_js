@@ -1,0 +1,22 @@
+<%= form_for @sandwich do |f|%>
+<h2>
+<p>
+  <%= f.label :sandwich_name, 'Name Your Sandwich:' %>
+  <%= f.text_field :sandwich_name %>
+</p>
+<p>
+  <%= f.label :grill, "Grill It" %>
+  <%= f.check_box :grill %>
+</p>
+<p>
+  <%= f.label :open_face, "Make it Open Face" %>
+  <%= f.check_box :open_face %>
+</p>
+<p>
+  <%= f.label :bread_name, "What kind of bread?" %>
+  <%= f.text_field :bread_name %>
+</p>
+
+  <%= f.submit %>
+</h2>
+<% end %>

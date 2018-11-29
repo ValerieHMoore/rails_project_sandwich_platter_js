@@ -1,10 +1,8 @@
 body{
-    background-image: url("sandwich-index.jpg");
-    background-size: cover;
+    color: black;
 }
 
 .sandwich-index{
-    color: green;
     background-image: url("sandwich-index.jpg");
     background-size: cover;
 }
@@ -18,6 +16,12 @@ body{
 .grilled{
     color: red;
     background-image: url("grilled-sandwich2.jpg");
+    background-size: cover;
+}
+
+.new-sandwich{
+    color: red;
+    background-image: url("new-sandwich.jpg");
     background-size: cover;
 }
 
