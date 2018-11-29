@@ -9,17 +9,12 @@ body{
 }
 
 .open-faced{
-    background-image: url("open-face-sandwich.jpg");
+    background-image: url("open-face-sandwich2.jpg");
     background-size: cover;
 }
 
 .grilled{
     background-image: url("grilled-sandwich2.jpg");
-    background-size: cover;
-}
-
-.toasted{
-    background-image: url("toast-sandwich.jpg");
     background-size: cover;
 }
 
