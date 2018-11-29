@@ -6,9 +6,17 @@ class SandwichesController < ApplicationController
 
     def create
         @sandwich = Sandwich.create(sandwich_params)
+        if @sandwich.save
         redirect_to sandwich_path(@sandwich)
-    end
-
+        else
+          10.times do
+            sandwich_filling = @sandwich.sandwich_fillings.build
+            sandwich_filling.build_filling
+          end
+          render 'new'
+        end
+      end
+    
     def index
         @sandwiches = Sandwich.all
     end

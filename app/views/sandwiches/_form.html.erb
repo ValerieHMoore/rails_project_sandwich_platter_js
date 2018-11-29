@@ -15,39 +15,18 @@
   <%= f.text_field :bread_name %>
 </p>
     <p>
-    <%= f.fields_for :fillings do |filling| %>
-    <%= filling.label :filling_name, "Spread/Filling #1" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #2" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #3" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #4" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #5" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #6" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #7" %>
-    <%= filling.text_field :filling_name %>
-    </p>
-    <p>
-    <%= filling.label :filling_name, "Spread/Filling #8" %>
-    <%= filling.text_field :filling_name %>
+    <%= f.fields_for :sandwich_fillings do |j| %>
+    <%= j.label :quantity, "Quantity" %>
+    <%= j.text_field :quantity %>
     </p>
     <% end %>
+
+    <%= f.fields_for :quantities do |q| %>
+    <li>
+      Quantity: <%= q.text_field :amount %>
+        <%= q.fields_for :ingredient do |ingredient|%>
+            Ingredient: <%= ingredient.text_field :name %>
+        <%end%>
 
   <%= f.submit %>
 </h3>
