@@ -4,7 +4,7 @@ class SandwichFilling < ApplicationRecord
 
   validates :quantity, presence: true
 
-  accepts_nested_attributes_for :filling
-  accepts_nested_attributes_for :sandwich
+  # accepts_nested_attributes_for :fillings
+  # accepts_nested_attributes_for :sandwiches
   
 end
