@@ -23,7 +23,9 @@
   <body>
 
 <h1>Sandwiches Index</h1>
-<%= link_to "Grilled Sandwiches", grilled_path %> 
+<%= link_to "Grilled Sandwiches", grilled_path %><br>
+<%= link_to "Toasted-Bread Sandwiches", toasted_path %><br>
+<%= link_to "Open-Faced Sandwiches", open_faced_path %><br>
 <%=@sandwiches.each do |sandwich|%>
 <%= render partial: 'sandwich', locals: {sandwich: @sandwich} %>
 <% end %>

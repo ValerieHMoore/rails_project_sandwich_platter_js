@@ -25,10 +25,6 @@ class SandwichesController < ApplicationController
         @sandwiches = Sandwich.grilled
     end
 
-    def toasted
-        @sandwiches = Sandwich.toasted
-    end
-
     def open_faced
         @sandwiches = Sandwich.open_faced
     end
