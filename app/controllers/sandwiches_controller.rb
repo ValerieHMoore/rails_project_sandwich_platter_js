@@ -1,21 +1,25 @@
 class SandwichesController < ApplicationController
 
     def new
-        @sandwich = Sandwich.new
+        @sandwich = Sandwich.new(sandwich_params)
+        10.times do
+            sandwich_filling = @sandwich.sandwich_fillings.build
+            sandwich_filling.build_filling
+        end
     end
 
     def create
-        @sandwich = Sandwich.create(sandwich_params)
+        @sandwich = Sandwich.new(sandwich_params)
         if @sandwich.save
-        redirect_to sandwich_path(@sandwich)
+            redirect_to sandwich_path(@sandwich)
         else
           10.times do
             sandwich_filling = @sandwich.sandwich_fillings.build
             sandwich_filling.build_filling
-          end
-          render 'new'
+        end 
+        render :new
         end
-      end
+    end
     
     def index
         @sandwiches = Sandwich.all
@@ -46,10 +50,7 @@ class SandwichesController < ApplicationController
     private
 
     def sandwich_params
-        params.require(:sandwich).permit(
-            :sandwich_name, :grill, :open_face,
-            fillings_attributes:[:filling_name],
-            sandwich_fillings_attributes:[:quantity])
+        params.require(:sandwich).permit(:sandwich_name, :bread_name, :grill, :open_face, sandwich_fillings_attributes:[:quantity, fillings_attributes: [:filling_name]])
     end
 
 end

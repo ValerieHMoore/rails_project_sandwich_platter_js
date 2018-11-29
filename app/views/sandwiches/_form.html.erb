@@ -5,28 +5,23 @@
   <%= f.text_field :sandwich_name %>
 </p>
 <p>
+  <%= f.label :bread_name, "What kind of bread?" %>
+  <%= f.text_field :bread_name %>
   <%= f.label :grill, "Grill It" %>
   <%= f.check_box :grill %>
   <%= f.label :open_face, "Make it Open Face" %>
   <%= f.check_box :open_face %>
 </p>
-<p>
-  <%= f.label :bread_name, "What kind of bread?" %>
-  <%= f.text_field :bread_name %>
-</p>
     <p>
     <%= f.fields_for :sandwich_fillings do |j| %>
     <%= j.label :quantity, "Quantity" %>
     <%= j.text_field :quantity %>
+        <%=j.fields_for :fillings do |filling|%>
+        <%= filling.label :filling_name, "Spread/Filling" %>
+        <%= filling.text_field :filling_name %>
+        <% end %>
     </p>
     <% end %>
-
-    <%= f.fields_for :quantities do |q| %>
-    <li>
-      Quantity: <%= q.text_field :amount %>
-        <%= q.fields_for :ingredient do |ingredient|%>
-            Ingredient: <%= ingredient.text_field :name %>
-        <%end%>
 
   <%= f.submit %>
 </h3>
