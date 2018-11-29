@@ -1,3 +1,13 @@
 class Sandwich < ApplicationRecord
-    has_many :fillings, through: :quantity
+    belongs_to :user
+    has_many :fillings, through: :sandwich_fillings
+    accepts_nested_attributes_for :sandwich_fillings
+
+    validates :sandwich_name, presence: true
+    validates :bread_name, presence: true
+
+    scope :toasted, -> { where(toast: true) }
+    scope :grilled, -> { where(grill: true) }
+    scope :open_faced, -> { where(open_face: true) }
+
 end
