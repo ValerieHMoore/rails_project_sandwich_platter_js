@@ -3,7 +3,6 @@ class CreateSandwiches < ActiveRecord::Migration[5.2]
     create_table :sandwiches do |t|
       t.string :sandwich_name
       t.string :bread_name
-      t.boolean :toast
       t.boolean :grill
       t.boolean :open_face
 
