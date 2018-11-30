@@ -1,10 +1,16 @@
-<%= form_for @user, url: "/login" do |f| %>
+<body class=users-new>
 
-  <%= f.label :email, "Enter your email" %> <br>
-  <%= f.email_field :email %>
+<h1> Login to Sandwich Platter </h1>
+<h2>
+<%= form_for @user do |f| %>
+<%= f.label :email, "Email"%>
+<%= f.text_field :email %>
+<br>
+<%= f.label :password, "Password"%>
+<%= f.password_field :password %>
+<br>
+<%= f.submit "Login"%>
+<%end%>
+</h2>
 
-  <%= f.label :password, "Enter your password" %> <br>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Sign In"  %>
-<% end %>
+</body>
