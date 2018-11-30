@@ -1,0 +1,17 @@
+<body class=users-new>
+
+<h1> Sign Up for Sandwich Platter </h1>
+<h2>
+<%= form_for @user do |f| %>
+<%= f.label :email, "Enter your email"%>
+<%= f.text_field :email %> <br>
+<%= f.label :password, "Enter your password"%>
+<%= f.password_field :password %> <br>
+<%= f.label :password_confirmation, "Confirm your password"%>
+<%= f.password_field :password_confirmation %>
+<br>
+<%= f.submit "Create Account"%>
+<%end%>
+</h2>
+
+</body>

@@ -30,6 +30,13 @@ body{
     background-image: url("show-sandwich.jpg");
     background-size: cover;
 }
+
+.users-new{
+    color: greenyellow;
+    background-image: url("users-new-deli-guys.jpg");
+    background-size: cover;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
