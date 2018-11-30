@@ -13,12 +13,12 @@
   <%= f.check_box :open_face %>
 </p>
     <p>
-    <%= f.fields_for :sandwich_fillings do |j| %>
-    <%= j.label :quantity, "Quantity" %>
-    <%= j.text_field :quantity %>
-        <%=j.fields_for :fillings do |filling|%>
-        <%= filling.label :filling_name, "Spread/Filling" %>
-        <%= filling.text_field :filling_name %>
+    <%= f.fields_for :fillings do |i| %>
+    <%= i.label :filling_name, "Spread/Filling" %>
+    <%= i.text_field :filling_name %>
+        <%=i.fields_for :sandwich_fillings do |j|%>
+        <%= j.label :quantity, "Quantity" %>
+        <%= j.text_field :quantity %>
         <% end %>
     </p>
     <% end %>

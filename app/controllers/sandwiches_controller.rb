@@ -10,7 +10,7 @@ class SandwichesController < ApplicationController
 
     def create
         @sandwich = Sandwich.new(sandwich_params)
-        if @sandwich.save
+        if @sandwich.save!
             redirect_to sandwich_path(@sandwich)
         else
           10.times do

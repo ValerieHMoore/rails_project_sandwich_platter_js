@@ -55,3 +55,14 @@ class SandwichesController < ApplicationController
 
 end
 
+<p>
+    <%= f.fields_for :sandwich_fillings do |j| %>
+    <%= j.label :quantity, "Quantity" %>
+    <%= j.text_field :quantity %>
+        <%=j.fields_for :fillings do |filling|%>
+        <%= filling.label :filling_name, "Spread/Filling" %>
+        <%= filling.text_field :filling_name %>
+        <% end %>
+    </p>
+    <% end %>
+    

@@ -1,17 +1,14 @@
 <ul>
   <li>
     Sandwich Name: <%= sandwich.name %></li>
-    <li>Grill: <%= sandwich.grill %></li>
-    <li>Open-Face: <%= sandwich.open_face %></li>
+    <li>Grilled: <%= sandwich.grill %></li>
+    <li>Open-Faced: <%= sandwich.open_face %></li>
     <li>Bread: <%= sandwich.bread_name %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li>
-    <li>Filling: <%= sandwich.filling %></li> 
+    <li>Spreads/Fillings:</li>
+<% @sandwich.fillings.each do |f| %>
+  <%= f.filling_name %> X 
+  <% f.sandwich_fillings.each do |q| %>
+    <%= q.quantity %><br>
+  <% end %>
+<% end %>
 </ul>
