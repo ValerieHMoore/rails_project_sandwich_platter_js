@@ -14,7 +14,8 @@ class SandwichesController < ApplicationController
             redirect_to sandwich_path(@sandwich)
         else
           10.times do
-            @sandwich.fillings.build
+            sandwich_filling = @sandwich.sandwich_fillings.build
+            sandwich_filling.build_filling
         end 
         render :new
         end
@@ -49,10 +50,8 @@ class SandwichesController < ApplicationController
     private
 
     def sandwich_params
-        params.require(:sandwich).permit(
-            :sandwich_name, :bread_name, :grill, :open_face,
-            fillings_attributes: [:filling_name,
-            sandwich_fillings_attributes: [:quantity]])
+        params.require(:sandwich).permit(:sandwich_name, :bread_name, :grill, :open_face, fillings_attributes: [:filling_name, sandwich_fillings_attributes: [:quantity]])
     end
 
 end
+

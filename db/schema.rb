@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_005645) do
   end
 
   create_table "sandwiches", force: :cascade do |t|
+    t.integer "user_id"
     t.string "sandwich_name"
     t.string "bread_name"
     t.boolean "grill"
