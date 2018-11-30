@@ -32,8 +32,8 @@ body{
 }
 
 .users-new{
-    color: greenyellow;
-    background-image: url("users-new-deli-guys.jpg");
+    color: red;
+    background-image: url("big-sandwich.jpg");
     background-size: cover;
 }
 
