@@ -2,7 +2,7 @@ body{
     color: black;
 }
 
-.sandwich-index{
+.sandwiches-index{
     background-image: url("sandwich-index.jpg");
     background-size: cover;
 }

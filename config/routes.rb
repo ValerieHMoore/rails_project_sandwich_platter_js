@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   resources :sandwiches
   resources :users
 
+  root to: 'welcome#home'
+
   get '/grilled' => 'sandwiches#grilled'
   get '/open_faced' => 'sandwiches#open_faced'
   
-  get '/signin' => 'sessions#new'
+  get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
