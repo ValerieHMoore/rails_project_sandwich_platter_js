@@ -19,7 +19,6 @@ class UsersController < ApplicationController
         if @user.nil?
           flash[:notice] = "User not found."
           redirect_to users_path
-    
         else
           @user_message = params[:user_message] if params[:user_message]
           @user_message ||= false
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:email, :password_digest, :admin)
+        params.require(:user).permit(:email, :password_digest)
     end
     
 end
