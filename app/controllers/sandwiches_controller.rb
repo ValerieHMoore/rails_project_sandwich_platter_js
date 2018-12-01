@@ -1,29 +1,46 @@
 class SandwichesController < ApplicationController
 
-    def new
-        @sandwich = Sandwich.new
-        10.times {@sandwich.fillings.build}
-        @sandwich.fillings.each do |i|
-        i.sandwich_fillings.build
+    before_action :require_login
+
+    def index
+        if params[:user_id] && current_user.id == params[:user_id].to_i
+          @user = current_user
+          @sandwiches = @user.sandwiches
+        elsif params[:user_id]
+          flash[:alert] = "Leave my provolone! (Not your recipes)"
+          redirect_to sandwiches_path
+        else
+          @sandwiches = Sandwich.all
         end
+    end
+
+    def new
+        if current_user.id == params[:user_id].to_i
+        @user = current_user
+        @sandwich = Sandwich.new(user_id: params[:user_id])
+        10.times {@sandwich.fillings.build}
+            @sandwich.fillings.each do |i|
+            i.sandwich_fillings.build
+            end
+        else
+        flash[:alert] = "Leave my provolone! (You can't create a recipe for another user)"
+        redirect_to sandwiches_path
+      end
     end
 
     def create
         @sandwich = Sandwich.new(sandwich_params)
+        @user = User.find_by(id: params[:user_id])
         if @sandwich.save!
             redirect_to sandwich_path(@sandwich)
         else
           10.times do
             @sandwich.fillings.build
-        end 
+            end 
         render :new
         end
     end
     
-    def index
-        @sandwiches = Sandwich.all
-    end
-
     def show
         @sandwich = Sandwich.find_by(id: params[:id])
     end
