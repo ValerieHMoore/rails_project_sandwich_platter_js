@@ -9,6 +9,7 @@ class SandwichesController < ApplicationController
     
     def new
         # @sandwich = Sandwich.new
+        binding.pry
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
         @sandwich = Sandwich.new(user_id: params[:user_id])
