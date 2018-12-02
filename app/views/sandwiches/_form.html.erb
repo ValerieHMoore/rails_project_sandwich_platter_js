@@ -4,7 +4,6 @@
       <%= pluralize(@sandwich.errors.count, "error") %>
       prohibited this sandwich from being saved:
     </h2>
- 
     <ul>
     <% @sandwich.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

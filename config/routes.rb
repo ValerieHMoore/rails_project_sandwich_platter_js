@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   resources :sandwich_fillings
   resources :fillings
-  resources :sandwiches, only: [:index, :new, :show, :destroy]
+  resources :sandwiches, only: [:index, :show, :destroy]
   
   resources :users, only: [:new, :create] do
     resources :sandwiches, only: [:new, :create, :index, :update, :edit, :show]

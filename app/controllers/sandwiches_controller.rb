@@ -1,19 +1,15 @@
 class SandwichesController < ApplicationController
 
+    # before_action :require_login
+
     def index
-        if params[:user_id] && current_user.id == params[:user_id].to_i
-          @user = current_user
-          @sandwiches = @user.sandwiches
-        elsif params[:user_id]
-          flash[:alert] = "Leave my provolone! (Not your recipes)"
-          redirect_to sandwiches_path
-        else
-          @sandwiches = Sandwich.all
-        end
+        @sandwiches = Sandwich.all
     end
 
+    
     def new
-        if current_user.id == params[:user_id].to_i
+        # @sandwich = Sandwich.new
+        if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
         @sandwich = Sandwich.new(user_id: params[:user_id])
         10.times {@sandwich.fillings.build}
