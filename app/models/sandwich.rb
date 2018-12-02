@@ -2,6 +2,7 @@ class Sandwich < ApplicationRecord
     belongs_to :user
     has_many :sandwich_fillings
     has_many :fillings, through: :sandwich_fillings
+    
     accepts_nested_attributes_for :fillings
 
     validates :sandwich_name, presence: true

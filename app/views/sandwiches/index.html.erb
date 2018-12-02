@@ -7,5 +7,5 @@
 <%=@sandwiches.each do |sandwich|%>
 <%= render partial: 'sandwich', locals: {sandwich: @sandwich} %>
 <% end %>
-
+<%= link_to "Log out", logout_path, method: :delete %>
 </body>
