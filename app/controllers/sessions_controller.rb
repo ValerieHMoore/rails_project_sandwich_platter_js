@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id 
         redirect_to sandwiches_path(@user)
-      else
+        else
         render :new
+        end
       end
     end
 
