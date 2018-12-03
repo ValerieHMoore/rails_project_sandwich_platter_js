@@ -9,3 +9,5 @@ def index
           @sandwiches = Sandwich.all
         end
     end
+
+    <%= link_to "Create a New Sandwich", new_sandwich_path %><br>
