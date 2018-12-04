@@ -24,7 +24,7 @@ class SandwichesController < ApplicationController
     def create
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
-        if @sandwich.save
+        if @sandwich.save!
             redirect_to sandwich_path(@sandwich)
         else
           10.times do
@@ -62,7 +62,7 @@ class SandwichesController < ApplicationController
 
     def sandwich_params
         params.require(:sandwich).permit(
-            :sandwich_name, :bread_name, :grill, :open_face,
+            :sandwich_name, :bread_name, :grill, :open_face, :user_id,
             fillings_attributes: [:filling_name,
             sandwich_fillings_attributes: [:quantity]])
     end
