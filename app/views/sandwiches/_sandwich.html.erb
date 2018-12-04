@@ -1,8 +1,8 @@
-<h1>Sandwich Name: <%= sandwich.sandwich_name %></li></h1>
+<h1><%= @sandwich.sandwich_name %></h1>
 <h2>
-Grilled: <%= sandwich.grill %>
-Open-Faced: <%= sandwich.open_face %>
-Bread: <%= sandwich.bread_name %>
+Grilled: <%= @sandwich.grill %>
+Open-Faced: <%= @sandwich.open_face %>
+Bread: <%= @sandwich.bread_name %>
 Spreads/Fillings:
 <% @sandwich.fillings.each do |f| %>
   <%= f.filling_name %> x 
