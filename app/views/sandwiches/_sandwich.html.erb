@@ -1,11 +1,13 @@
-<h1><%= @sandwich.sandwich_name %></h1>
+<h1><%= @sandwich.sandwich_name%> Sandwich</h1>
 <h2>
-Grilled: <%= @sandwich.grill %>
-Open-Faced: <%= @sandwich.open_face %>
-Bread: <%= @sandwich.bread_name %>
-Spreads/Fillings:
+Grilled: <%= human_boolean(@sandwich.grill) %><br>
+Open-Faced: <%= human_boolean(@sandwich.open_face) %><br>
+Bread: <%= @sandwich.bread_name %><br>
+<br>
+Spreads/Fillings:<br>
+<br>
 <% @sandwich.fillings.each do |f| %>
-  <%= f.filling_name %> x 
+  <%= f.filling_name %> 
   <% f.sandwich_fillings.each do |q| %>
     <%= q.quantity %><br>
   <% end %>
