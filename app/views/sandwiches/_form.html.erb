@@ -12,7 +12,8 @@
   </div>
 <% end %>
 
-<%= form_for @sandwich do |f|%>
+<%= form_for [@user, @sandwich] do |f| %>
+<%= f.hidden_field :user_id%>
 <h3>
 <p>
   <%= f.label :sandwich_name, 'Name Your Sandwich:' %>

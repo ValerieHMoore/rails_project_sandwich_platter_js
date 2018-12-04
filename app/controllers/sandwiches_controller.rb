@@ -8,8 +8,6 @@ class SandwichesController < ApplicationController
 
     
     def new
-        # @sandwich = Sandwich.new
-        # binding.pry
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
         @sandwich = Sandwich.new
@@ -19,18 +17,20 @@ class SandwichesController < ApplicationController
             end
         else
         flash[:alert] = "Leave my provolone! (You can't create a recipe for another user)"
-        render :new
+        redirect_to sandwiches_path
       end
     end
 
     def create
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
-        if @sandwich.save!
+        if @sandwich.save
             redirect_to sandwich_path(@sandwich)
         else
           10.times do
             @sandwich.fillings.build
+            sandwich_filling = @sandwich.sandwich_fillings.build
+            sandwich_filling.build_filling
             end 
         render :new
         end
