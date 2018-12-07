@@ -35,7 +35,7 @@ class SandwichesController < ApplicationController
         render :new
         end
     end
-    
+
     def show
         @sandwich = Sandwich.find_by(id: params[:id])
     end
