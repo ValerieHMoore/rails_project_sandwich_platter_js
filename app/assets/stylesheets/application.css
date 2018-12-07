@@ -28,8 +28,8 @@ body{
 }
 
 .show-sandwich{
-    color: white;
-    background-image: url("show-sandwich.jpg");
+    color: greenyellow;
+    background-image: url("show-sandwich3.jpg");
     background-size: cover;
 }
 
