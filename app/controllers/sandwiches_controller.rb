@@ -10,7 +10,7 @@ class SandwichesController < ApplicationController
     def new
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
-        @sandwich = Sandwich.new
+        @sandwich = Sandwich.new(user_id: params[:user_id])
         10.times {@sandwich.fillings.build}
             @sandwich.fillings.each do |i|
             i.sandwich_fillings.build
