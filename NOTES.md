@@ -1,11 +1,20 @@
-def index
-        if params[:user_id] && current_user.id == params[:user_id].to_i
-          @user = current_user
-          @sandwiches = @user.sandwiches
-        elsif params[:user_id]
-          flash[:alert] = "Leave my provolone! (Not your recipes)"
-          redirect_to sandwiches_path
-        else
-          @sandwiches = Sandwich.all
-        end
-    end
+Rails.application.routes.draw do
+  resources :sandwich_fillings
+  resources :fillings
+  resources :sandwiches, only: [:index, :new, :show, :destroy]
+  
+  resources :users, only: [:new, :create] do
+    resources :sandwiches, only: [:new, :create, :index, :update, :edit, :show]
+  end
+  
+  root to: 'welcome#home'
+
+  get '/grilled' => 'sandwiches#grilled'
+  get '/open_faced' => 'sandwiches#open_faced'
+  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+  get '/auth/github/callback' => 'sessions#create'
+
+end

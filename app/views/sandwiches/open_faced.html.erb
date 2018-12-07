@@ -1,7 +1,7 @@
 <body class=open-faced>
 
 <h1>Open-Faced Sandwiches</h1>
-<%=@sandwiches.open_faced.each do |sandwich|%>
+<%@sandwiches.open_faced.each do |sandwich|%>
 <%= render partial: 'sandwich', locals: {sandwich: @sandwich} %>
 <% end %>
 

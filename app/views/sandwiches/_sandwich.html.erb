@@ -1,16 +1,22 @@
 <h1><%= @sandwich.sandwich_name%> Sandwich</h1>
+
 <h2>
 Grilled: <%= human_boolean(@sandwich.grill) %><br>
 Open-Faced: <%= human_boolean(@sandwich.open_face) %><br>
 Bread: <%= @sandwich.bread_name %><br>
 <br>
 Spreads/Fillings:<br>
-<br>
+</h2>
+<h3>
 <% @sandwich.fillings.each do |f| %>
   <%= f.filling_name %> 
   <% f.sandwich_fillings.each do |q| %>
     <%= q.quantity %><br>
   <% end %>
 <% end %>
-<%= link_to "All Sandwiches", sandwiches_path %><br>
-</h2>
+</h3>
+<h4>
+<%= link_to "All Sandwiches", sandwiches_path %>
+<br>
+<%= link_to "Logout", logout_path %>
+</h4>

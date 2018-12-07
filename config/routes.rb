@@ -3,10 +3,10 @@
 Rails.application.routes.draw do
   resources :sandwich_fillings
   resources :fillings
-  resources :sandwiches, only: [:index, :new, :show, :destroy]
+  resources :sandwiches
   
-  resources :users, only: [:new, :create] do
-    resources :sandwiches, only: [:new, :create, :index, :update, :edit, :show]
+  resources :users do
+    resources :sandwiches
   end
   
   root to: 'welcome#home'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/auth/github/callback' => 'sessions#create'
 
 end

@@ -1,7 +1,7 @@
 <body class=grilled>
 
 <h1>Grilled Sandwiches</h1>
-<%=@sandwiches.grilled.each do |sandwich|%>
+<%@sandwiches.grilled.each do |sandwich|%>
 <%= render partial: 'sandwich', locals: {sandwich: @sandwich} %>
 <% end %>
 
