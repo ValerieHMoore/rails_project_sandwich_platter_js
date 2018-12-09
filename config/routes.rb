@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/grilled' => 'sandwiches#grilled'
   get '/open_faced' => 'sandwiches#open_faced'
-  
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
