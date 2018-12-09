@@ -2,8 +2,18 @@ class SandwichesController < ApplicationController
 
     before_action :require_login
 
+#    @sandwiches = Sandwich.all.order(:sandwich_name)
+    
     def index
-        @sandwiches = Sandwich.all.order(:sandwich_name)
+        if params[:user_id] && current_user.id == params[:user_id].to_i
+          @user = current_user
+          @sandwiches = @user.sandwiches
+        elsif params[:user_id]
+          flash[:alert] = "Leave my provolone! (You can't view another user's recipes)"
+          redirect_to sandwiches_path
+        else
+          @sandwiches = Sandwich.all
+        end
     end
   
     def new
