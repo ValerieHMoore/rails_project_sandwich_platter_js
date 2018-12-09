@@ -1,6 +1,5 @@
 <body class=new-sandwich>
 
-<h1>Edit a Sandwich</h1>
-<%= render partial: 'form', locals: {sandwich: @sandwich} %>
-
+<h1>Edit <%=@sandwich.sandwich_name%> Sandwich</h1>
+<%= render partial: 'form', locals: {user: @user, sandwich: @sandwich} %>
 </body>

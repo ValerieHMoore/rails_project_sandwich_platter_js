@@ -16,8 +16,8 @@ body{
 }
 
 .grilled{
-    color: red;
-    background-image: url("grilled-sandwich2.jpg");
+    color: white;
+    background-image: url("grilled-sandwich.jpg");
     background-size: cover;
 }
 

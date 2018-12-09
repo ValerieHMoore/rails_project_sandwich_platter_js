@@ -1,12 +1,11 @@
 class SandwichesController < ApplicationController
 
-    # before_action :require_login
+    before_action :require_login
 
     def index
         @sandwiches = Sandwich.all
     end
-
-    
+  
     def new
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
@@ -45,11 +44,11 @@ class SandwichesController < ApplicationController
     end
 
     def grilled
-        @sandwiches = Sandwich.grilled
+        @sandwiches = Sandwich.all.grilled
     end
 
     def open_faced
-        @sandwiches = Sandwich.open_faced
+        @sandwiches = Sandwich.all.open_faced
     end
     
     def update
