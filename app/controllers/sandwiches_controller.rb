@@ -3,7 +3,7 @@ class SandwichesController < ApplicationController
     before_action :require_login
 
     def index
-        @sandwiches = Sandwich.all
+        @sandwiches = Sandwich.all.order(:sandwich_name)
     end
   
     def new
@@ -50,7 +50,7 @@ class SandwichesController < ApplicationController
     def open_faced
         @sandwiches = Sandwich.all.open_faced
     end
-    
+
     def update
         @sandwich = Sandwich.find_by(id: params[:id])
         @sandwich.update(sandwich_params)

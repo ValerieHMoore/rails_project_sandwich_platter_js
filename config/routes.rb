@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   resources :sandwich_fillings
-  resources :fillings
   resources :sandwiches
   
   resources :users do
