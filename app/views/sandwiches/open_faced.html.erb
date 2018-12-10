@@ -1,10 +1,6 @@
 <body class=open-faced>
 
 <h1>Open-Faced Sandwiches</h1>
-<h3>
-<%@sandwiches.open_faced.each do |sandwich|%>
-<%= link_to sandwich.sandwich_name, sandwich_path(sandwich)%>
-<br>
-<% end %>
-</h3>
+<%= render partial: 'list', locals: {user: @user, sandwich: @sandwich} %>
+
 </body>

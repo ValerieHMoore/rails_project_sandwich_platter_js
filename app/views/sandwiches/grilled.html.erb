@@ -1,10 +1,6 @@
 <body class=grilled>
 
 <h1>Grilled Sandwiches</h1>
-<h3>
-<%@sandwiches.grilled.each do |sandwich|%>
-<%= link_to sandwich.sandwich_name, sandwich_path(sandwich)%>
-<br>
-<% end %>
-</h3>
+<%= render partial: 'list', locals: {user: @user, sandwich: @sandwich} %>
+
 </body>
