@@ -4,7 +4,6 @@
       <%= pluralize(@sandwich.errors.count, "error") %>
       prohibited this sandwich from being saved:
     </h2>
- 
     <ul>
     <% @sandwich.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -18,16 +17,14 @@
 <h3>
 <p>
   <%= f.label :sandwich_name, 'Name Your Sandwich:' %>
-  <%= f.text_field :sandwich_name %>
-</p>
+  <%= f.text_field :sandwich_name %></p>
 <p>
   <%= f.label :bread_name, "What kind of bread?" %>
   <%= f.text_field :bread_name %>
   <%= f.label :grill, "Grill It" %>
   <%= f.check_box :grill %>
   <%= f.label :open_face, "Make it Open Face" %>
-  <%= f.check_box :open_face %>
-</p>
+  <%= f.check_box :open_face %></p>
     <p>
     <%= f.fields_for :fillings do |i| %>
     <%= i.label :filling_name, "Spread/Filling" %>
@@ -35,10 +32,8 @@
         <%=i.fields_for :sandwich_fillings do |j|%>
         <%= j.label :quantity, "Quantity" %>
         <%= j.text_field :quantity %>
-        <% end %>
-    </p>
+        <% end %></p>
     <% end %>
-
-  <%= f.submit %>
+<%= f.submit %>
 </h3>
 <% end %>
