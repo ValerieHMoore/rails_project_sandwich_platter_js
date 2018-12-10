@@ -3,6 +3,14 @@ body{
     font-family: "Georgia", Georgia, serif;
 }
 
+.alert-success{
+    color: green;
+  }
+
+.alert-danger{
+    color: red;
+  }
+
 .sandwiches-index{
     color: saddlebrown;
     background-image: url("sandwich-index.jpg");

@@ -34,11 +34,11 @@ class SandwichesController < ApplicationController
         if @sandwich.save
             redirect_to sandwich_path(@sandwich)
         else
-          10.times do
-            @sandwich.fillings.build
-            sandwich_filling = @sandwich.sandwich_fillings.build
-            sandwich_filling.build_filling
-            end 
+        #   10.times do
+        #     @sandwich.fillings.build
+        #     sandwich_filling = @sandwich.sandwich_fillings.build
+        #     sandwich_filling.build_filling
+        #     end 
         render :new
         end
     end
@@ -49,7 +49,7 @@ class SandwichesController < ApplicationController
 
     def edit
         @sandwich = Sandwich.find_by(id: params[:id])
-        @user = current_user
+        # @user = current_user
     end
 
     def grilled
