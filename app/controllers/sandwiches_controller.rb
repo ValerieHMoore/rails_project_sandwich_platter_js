@@ -2,17 +2,15 @@ class SandwichesController < ApplicationController
 
     before_action :require_login
 
-#    @sandwiches = Sandwich.all.order(:sandwich_name)
-    
     def index
         if params[:user_id] && current_user.id == params[:user_id].to_i
           @user = current_user
-          @sandwiches = @user.sandwiches
+          @sandwiches = @user.sandwiches.order(:sandwich_name)
         elsif params[:user_id]
           flash[:alert] = "Leave my provolone! (You can't view another user's recipes)"
           redirect_to sandwiches_path
         else
-          @sandwiches = Sandwich.all
+          @sandwiches = Sandwich.all.order(:sandwich_name)
         end
     end
   
@@ -33,7 +31,7 @@ class SandwichesController < ApplicationController
     def create
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
-        if @sandwich.save!
+        if @sandwich.save
             redirect_to sandwich_path(@sandwich)
         else
           10.times do
@@ -51,6 +49,7 @@ class SandwichesController < ApplicationController
 
     def edit
         @sandwich = Sandwich.find_by(id: params[:id])
+        @user = current_user
     end
 
     def grilled
@@ -67,13 +66,19 @@ class SandwichesController < ApplicationController
         redirect_to sandwich_path(@sandwich)
     end
 
+    def destroy
+        sandwich = Sandwich.find(params[:id])
+        sandwich.destroy
+        redirect_to user_sandwiches_path
+    end
+
     private
 
     def sandwich_params
         params.require(:sandwich).permit(
             :sandwich_name, :bread_name, :grill, :open_face, :user_id,
             fillings_attributes: [:filling_name,
-            sandwich_fillings_attributes: [:quantity]])
+            sandwich_fillings_attributes: [:quantity, :id]])
     end
 
 end

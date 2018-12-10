@@ -1,5 +1,7 @@
 <body class=show-sandwich>
 
 <%= render partial: 'sandwich', locals: {sandwich: @sandwich} %>
-<%= link_to "Edit Sandwich", edit_user_sandwich_path %><br>
+<%= link_to "Edit Sandwich", edit_user_sandwich_path(current_user, @sandwich) %><br>
+<%= link_to "Delete This Sandwich", user_sandwich_path(current_user, @sandwich), method: :delete, data: { confirm: 'Are you sure?' } %> 
+
 </body>
