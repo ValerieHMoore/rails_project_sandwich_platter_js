@@ -3,9 +3,11 @@ class Sandwich < ApplicationRecord
     has_many :sandwich_fillings, dependent: :delete_all
     has_many :fillings, through: :sandwich_fillings
     
-    accepts_nested_attributes_for :fillings, allow_destroy: true, reject_if: :all_blank
+    accepts_nested_attributes_for :fillings, allow_destroy: true, reject_if: -> (attributes){attributes[:filling_name]==""}
 
-    accepts_nested_attributes_for :sandwich_fillings, allow_destroy: true, reject_if: :all_blank
+    # accepts_nested_attributes_for :sandwich_fillings, allow_destroy: true, reject_if: -> (attributes){raise attributes.inspect }
+    # "fillings_attributes"=>{"5"=>{"filling_name"=>"", "sandwich_fillings_attributes"=>{"0"=>{"quantity"=>""}}},
+    # if attributes[:quantity]==""
 
     validates :sandwich_name, presence: true
     validates :bread_name, presence: true

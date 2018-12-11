@@ -29,6 +29,7 @@ class SandwichesController < ApplicationController
     end
 
     def create
+        # raise sandwich_params.inspect
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
         if @sandwich.save
@@ -49,6 +50,10 @@ class SandwichesController < ApplicationController
     def edit
         @sandwich = Sandwich.find_by(id: params[:id])
         @user = current_user
+        if !@sandwich
+            flash[:alert] = "Sorry, sandwich not found"
+            redirect_to user_sandwiches_path
+            end 
     end
 
     def grilled
@@ -76,13 +81,13 @@ class SandwichesController < ApplicationController
     def sandwich_params
         params.require(:sandwich).permit(
             :sandwich_name, :bread_name, :grill, :open_face, :user_id,
-            fillings_attributes: [:filling_name, :id, :_destroy,
-            sandwich_fillings_attributes: [:quantity, :filling_id, :_destroy]])
+                sandwich_fillings_attributes: [:quantity, :filling_name, :_destroy])
     end
 
-    # def person_params
-    #     params.require(:person).
-    #       permit(:name, addresses_attributes: [:id, :kind, :street, :_destroy])
-    #   end
-
+    # def sandwich_params
+    #     params.require(:sandwich).permit(
+    #         :sandwich_name, :bread_name, :grill, :open_face, :user_id,
+    #         fillings_attributes: [:filling_name, :id, :_destroy,
+    #         sandwich_fillings_attributes: [:quantity, :filling_id, :_destroy]])
+    # end
 end
