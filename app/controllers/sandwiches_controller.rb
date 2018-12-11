@@ -72,8 +72,13 @@ class SandwichesController < ApplicationController
     def sandwich_params
         params.require(:sandwich).permit(
             :sandwich_name, :bread_name, :grill, :open_face, :user_id,
-            fillings_attributes: [:filling_name, 
-            sandwich_fillings_attributes: [:quantity, :id]])
+            fillings_attributes: [:filling_name, :id, :_destroy,
+            sandwich_fillings_attributes: [:quantity, :filling_id, :_destroy]])
     end
+
+    # def person_params
+    #     params.require(:person).
+    #       permit(:name, addresses_attributes: [:id, :kind, :street, :_destroy])
+    #   end
 
 end
