@@ -40,6 +40,10 @@ class SandwichesController < ApplicationController
 
     def show
         @sandwich = Sandwich.find_by(id: params[:id])
+        if !@sandwich
+        flash[:alert] = "Sorry, sandwich not found"
+        redirect_to sandwiches_path
+        end 
     end
 
     def edit
