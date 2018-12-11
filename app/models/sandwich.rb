@@ -11,11 +11,4 @@ class Sandwich < ApplicationRecord
     scope :grilled, -> { where(grill: true) }
     scope :open_faced, -> { where(open_face: true) }
 
-    # def fillings_attributes=(fillings_attributes)
-    #     self.fillings.destroy_all
-    #     fillings_attributes.values.each do |filling_attributes|
-    #       self.fillings.build(filling_attributes)
-    #     end
-    # end
-
 end

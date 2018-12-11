@@ -26,12 +26,14 @@
   <%= f.label :open_face, "Make it Open Face" %>
   <%= f.check_box :open_face %></p>
     <p>
-    <%= f.fields_for :sandwich_fillings do |f|%>
-    <%= f.label :filling_name, "Spread/Filling" %>
-    <%= f.text_field :filling_name %>
-    <%= f.label :quantity, "Quantity" %>
-    <%= f.text_field :quantity %>
+    <%= f.fields_for :sandwich_fillings do |j|%>
+    <%= j.label :filling_name, "Spread/Filling" %><br>
+    <%= j.text_field :filling_name %>
+    <%= j.label :quantity, "Quantity" %><br>
+    <%= j.text_field :quantity %>
+    <br>
     <% end %>
+
 <%= f.submit %>
 </h3>
 <% end %>

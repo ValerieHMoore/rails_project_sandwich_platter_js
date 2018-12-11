@@ -18,10 +18,7 @@ class SandwichesController < ApplicationController
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
         @sandwich = Sandwich.new(user_id: params[:user_id])
-        10.times {@sandwich.fillings.build}
-            @sandwich.fillings.each do |i|
-            i.sandwich_fillings.build
-            end
+        10.times {@sandwich.sandwich_fillings.build}
         else
         flash[:alert] = "Leave my provolone! (You can't create a recipe for another user)"
         redirect_to sandwiches_path
@@ -31,7 +28,6 @@ class SandwichesController < ApplicationController
     def create
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
-        @filling = Filling.find_or_create_by[:filling_name]
         if @sandwich.save
             redirect_to sandwich_path(@sandwich)
         else
@@ -50,6 +46,7 @@ class SandwichesController < ApplicationController
     def edit
         @sandwich = Sandwich.find_by(id: params[:id])
         @user = current_user
+        4.times {@sandwich.sandwich_fillings.build}
     end
 
     def grilled
@@ -76,8 +73,8 @@ class SandwichesController < ApplicationController
 
     def sandwich_params
         params.require(:sandwich).permit(
-            :sandwich_name, :bread_name, :grill, :open_face, :user_id,
-                sandwich_fillings_attributes: [:quantity, :filling_name, :_destroy])
+            :sandwich_name, :bread_name, :grill, :open_face, :user_id, 
+                sandwich_fillings_attributes: [:quantity, :filling_name])
     end
 
 end
