@@ -15,13 +15,19 @@ class Sandwich < ApplicationRecord
     scope :grilled, -> { where(grill: true) }
     scope :open_faced, -> { where(open_face: true) }
 
-    # def sandwich_fillings_attributes=(sandwich_fillings_attributes)
-    #     sandwich_fillings_attributes.values.each do |sandwich_filling_attributes|
-    #       unless sandwich_filling_attributes[:filling_name].blank?
-    #         sandwich_filling = SandwichFilling.new(sandwich_filling_attributes)
-    #         self.sandwich_fillings << sandwich_filling
-    #       end
-    #     end
-    # end
+    def sandwich_fillings_attributes=(sandwich_fillings_attributes)
+        self.sandwich_fillings.destroy_all
+        sandwich_fillings_attributes.values.each do |sandwich_filling_attributes|
+            unless sandwich_filling_attributes[:filling_name].blank?
+    # if sandwich fillings attributes id , update that, otherwise create
+            # if sandwich_filling_attributes[:id]
+            #     sandwich_fillings_attributes.update(sandwich_filling_attributes)
+            # else
+            sandwich_filling = SandwichFilling.new(sandwich_filling_attributes)
+            self.sandwich_fillings << sandwich_filling
+            # end
+          end
+        end
+    end
 
 end
