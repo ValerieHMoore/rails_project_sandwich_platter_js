@@ -27,10 +27,10 @@
   <%= f.check_box :open_face %></p>
     <p>
     <%= f.fields_for :sandwich_fillings do |j|%>
-    <%= j.label :filling_name, "Spread/Filling" %><br>
+    <%= j.label :filling_name, "Spread/Filling" %>
     <%= j.text_field :filling_name %>
-    <%= j.label :quantity, "Quantity" %><br>
-    <%= j.text_field :quantity %>
+    <%= j.label :quantity, "Quantity" %>
+    <%= j.text_field :quantity %><br>
     <br>
     <% end %>
 
