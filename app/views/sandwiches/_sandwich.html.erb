@@ -6,13 +6,11 @@ Bread: <%= @sandwich.bread_name %><br>
 <br>
 Spreads/Fillings:<br>
 </h2>
-
 <h3>
 <% sandwich.sandwich_fillings.each do |sf|%>
 <%= sf.filling.filling_name%> <%= sf.quantity%><br>
 <%end%>
 </h3>
-
 <h5>
 <%= link_to "My Sandwiches", user_sandwiches_path(current_user) %><br>
 <%= link_to "All Sandwiches", sandwiches_path %><br>
