@@ -5,10 +5,6 @@ class Sandwich < ApplicationRecord
 
     accepts_nested_attributes_for :sandwich_fillings
     
-    # accepts_nested_attributes_for :sandwich_fillings, allow_destroy: true, reject_if: -> (attribute){ (attribute[:quantity]== "" or attribute[:filling_name]=="")}
-
-    # accepts_nested_attributes_for :sandwich_fillings, allow_destroy: true, reject_if: -> (attribute){raise attribute.inspect if (attribute[:quantity]== "" or attribute[:filling_name]=="")}
-
     validates :sandwich_name, presence: true
     validates :bread_name, presence: true
 
@@ -19,13 +15,8 @@ class Sandwich < ApplicationRecord
         self.sandwich_fillings.destroy_all
         sandwich_fillings_attributes.values.each do |sandwich_filling_attributes|
             unless sandwich_filling_attributes[:filling_name].blank?
-    # if sandwich fillings attributes id , update that, otherwise create
-            # if sandwich_filling_attributes[:id]
-            #     sandwich_fillings_attributes.update(sandwich_filling_attributes)
-            # else
             sandwich_filling = SandwichFilling.new(sandwich_filling_attributes)
             self.sandwich_fillings << sandwich_filling
-            # end
           end
         end
     end

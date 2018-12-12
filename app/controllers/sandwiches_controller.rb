@@ -26,7 +26,6 @@ class SandwichesController < ApplicationController
     end
 
     def create
-        # raise sandwich_params.inspect
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
         if @sandwich.save
