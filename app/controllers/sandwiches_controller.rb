@@ -54,11 +54,11 @@ class SandwichesController < ApplicationController
     end
 
     def grilled
-        @sandwiches = Sandwich.all.grilled.order(:sandwich_name)
+        @sandwiches = Sandwich.grilled
     end
 
     def open_faced
-        @sandwiches = Sandwich.all.open_faced.order(:sandwich_name)
+        @sandwiches = Sandwich.open_faced
     end
 
     def update
