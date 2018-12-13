@@ -18,10 +18,7 @@ class SandwichesController < ApplicationController
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user
         @sandwich = Sandwich.new(user_id: params[:user_id])
-        10.times {@sandwich.fillings.build}
-            @sandwich.fillings.each do |i|
-            i.sandwich_fillings.build
-            end
+        8.times {@sandwich.sandwich_fillings.build}
         else
         flash[:alert] = "Leave my provolone! (You can't create a recipe for another user)"
         redirect_to sandwiches_path
@@ -53,15 +50,16 @@ class SandwichesController < ApplicationController
         if !@sandwich
             flash[:alert] = "Sorry, sandwich not found"
             redirect_to user_sandwiches_path
-            end 
+        end 
+        4.times {@sandwich.sandwich_fillings.build}
     end
 
     def grilled
-        @sandwiches = Sandwich.all.grilled
+        @sandwiches = Sandwich.all.grilled.order(:sandwich_name)
     end
 
     def open_faced
-        @sandwiches = Sandwich.all.open_faced
+        @sandwiches = Sandwich.all.open_faced.order(:sandwich_name)
     end
 
     def update
@@ -80,14 +78,8 @@ class SandwichesController < ApplicationController
 
     def sandwich_params
         params.require(:sandwich).permit(
-            :sandwich_name, :bread_name, :grill, :open_face, :user_id,
-                sandwich_fillings_attributes: [:quantity, :filling_name, :_destroy])
+            :sandwich_name, :bread_name, :grill, :open_face, :user_id, 
+                sandwich_fillings_attributes: [:id, :quantity, :filling_name])
     end
 
-    # def sandwich_params
-    #     params.require(:sandwich).permit(
-    #         :sandwich_name, :bread_name, :grill, :open_face, :user_id,
-    #         fillings_attributes: [:filling_name, :id, :_destroy,
-    #         sandwich_fillings_attributes: [:quantity, :filling_id, :_destroy]])
-    # end
 end
