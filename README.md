@@ -1,4 +1,4 @@
-#Welcome to Rails_Project_Sandwich_Platter!
+Welcome to Rails_Project_Sandwich_Platter!
 
 Description:
 Users can sign up or login to create, view and edit sandwich recipes.
