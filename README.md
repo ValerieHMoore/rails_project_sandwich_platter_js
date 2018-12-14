@@ -6,12 +6,12 @@ You can only Create, Update or Delete your own sandwiches.
 This application was built using Ruby on Rails 5 and free photos from Unsplash.com.
 
 Photo Credits:
-Homepage/index: Photo by OLA Mishchenko on Unsplash
-Sandwich create/edit view: Photo by Elli O. on Unsplash
-Grilled sandwiches view: Photo by Asnim Asnim on Unsplash
-Open-faced sandwiches view: Photo by Anna Pelzer on Unsplash
-Big sandwich on users new page: Photo by Eaters Collective on Unsplash
-Sandwich show page: Photo by Eaters Collective on Unsplash
+Homepage/index: Photo by OLA Mishchenko on Unsplash. 
+Sandwich create/edit view: Photo by Elli O. on Unsplash. 
+Grilled sandwiches view: Photo by Asnim Asnim on Unsplash. 
+Open-faced sandwiches view: Photo by Anna Pelzer on Unsplash. 
+Big sandwich on users new page: Photo by Eaters Collective on Unsplash. 
+Sandwich show page: Photo by Eaters Collective on Unsplash.
 
 Install Instructions:
 To install this app, fork and clone from GitHub.
