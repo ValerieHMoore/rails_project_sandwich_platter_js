@@ -7,7 +7,7 @@ class SandwichesController < ApplicationController
           @user = current_user
           @sandwiches = @user.sandwiches.order(:sandwich_name)
         elsif params[:user_id]
-          flash[:alert] = "Leave my provolone! (You can't view another user's recipes)"
+          flash[:alert] = "Leave my provolone! (You can't view another user's sandwiches)"
           redirect_to sandwiches_path
         else
           @sandwiches = Sandwich.all.order(:sandwich_name)
@@ -20,7 +20,7 @@ class SandwichesController < ApplicationController
         @sandwich = Sandwich.new(user_id: params[:user_id])
         8.times {@sandwich.sandwich_fillings.build}
         else
-        flash[:alert] = "Leave my provolone! (You can't create a recipe for another user)"
+        flash[:alert] = "Leave my provolone! (You can't create a sandwich for another user)"
         redirect_to sandwiches_path
       end
     end
