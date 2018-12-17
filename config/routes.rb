@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/grilled' => 'sandwiches#grilled'
   get '/open_faced' => 'sandwiches#open_faced'
+  get '/peanut_butter' => 'sandwiches#peanut_butter'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

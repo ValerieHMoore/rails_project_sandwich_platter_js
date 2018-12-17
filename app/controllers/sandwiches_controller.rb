@@ -61,6 +61,10 @@ class SandwichesController < ApplicationController
         @sandwiches = Sandwich.open_faced
     end
 
+    def peanut_butter
+        @sandwiches = Sandwich.peanut_butter
+    end
+
     def update
         @sandwich = Sandwich.find_by(id: params[:id])
         @sandwich.update(sandwich_params)

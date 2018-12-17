@@ -10,7 +10,8 @@ class Sandwich < ApplicationRecord
 
     scope :grilled, -> { where(grill: true) }
     scope :open_faced, -> { where(open_face: true) }
-
+    scope :peanut_butter, -> { includes(:fillings).where(:fillings => { filling_name: "peanut butter" })}
+ 
     def sandwich_fillings_attributes=(sandwich_fillings_attributes)
         self.sandwich_fillings.destroy_all
         sandwich_fillings_attributes.values.each do |sandwich_filling_attributes|

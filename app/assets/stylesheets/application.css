@@ -29,6 +29,12 @@ body{
     background-size: cover;
 }
 
+.peanut_butter{
+    color: saddlebrown;
+    background-image: url("peanut-butter4.jpg");
+    background-size: cover;
+}
+
 .new-sandwich{
     color: red;
     background-image: url("new-sandwich.jpg");
