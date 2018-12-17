@@ -8,9 +8,9 @@ class Sandwich < ApplicationRecord
     validates :sandwich_name, presence: true
     validates :bread_name, presence: true
 
-    scope :grilled, -> { where(grill: true) }
-    scope :open_faced, -> { where(open_face: true) }
-    scope :peanut_butter, -> { includes(:fillings).where(:fillings => { filling_name: "peanut butter" })}
+    scope :grilled, -> { where(grill: true).order(sandwich_name: :asc) }
+    scope :open_faced, -> { where(open_face: true).order(sandwich_name: :asc) }
+    scope :peanut_butter, -> { includes(:fillings).where(:fillings => { filling_name: "peanut butter" }).order(sandwich_name: :asc) }
  
     def sandwich_fillings_attributes=(sandwich_fillings_attributes)
         self.sandwich_fillings.destroy_all
