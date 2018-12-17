@@ -10,6 +10,7 @@ Homepage/index: Photo by OLA Mishchenko on Unsplash.
 Sandwich create/edit view: Photo by Elli O. on Unsplash. 
 Grilled sandwiches view: Photo by Asnim Asnim on Unsplash. 
 Open-faced sandwiches view: Photo by Anna Pelzer on Unsplash. 
+Peanut butter sandwiches view: pixabay.com.
 Big sandwich on users new page: Photo by Eaters Collective on Unsplash. 
 Sandwich show page: Photo by Eaters Collective on Unsplash.
 
