@@ -1,10 +1,24 @@
 <body class=users-new>
 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1> Sign Up for Sandwich Platter </h1>
 <h2>
 <%= form_for @user do |f| %>
 <%= f.label :email, "Enter your email"%>
-<%= f.text_field :email %>
+<%= f.email_field :email %>
 <br>
 <%= f.label :password, "Enter your password"%>
 <%= f.password_field :password %>
