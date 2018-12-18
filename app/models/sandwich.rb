@@ -11,6 +11,7 @@ class Sandwich < ApplicationRecord
     scope :grilled, -> { where(grill: true).order(sandwich_name: :asc) }
     scope :open_faced, -> { where(open_face: true).order(sandwich_name: :asc) }
     scope :peanut_butter, -> { includes(:fillings).where(:fillings => { filling_name: "peanut butter" }).order(sandwich_name: :asc) }
+    scope :cheese, -> { eager_load(:fillings).where( "fillings.filling_name LIKE ?", '%cheese%' ).order(sandwich_name: :asc) }
  
     def sandwich_fillings_attributes=(sandwich_fillings_attributes)
         self.sandwich_fillings.destroy_all

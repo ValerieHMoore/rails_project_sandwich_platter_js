@@ -8,6 +8,7 @@ This application was built using Ruby on Rails 5 and free photos from Unsplash.c
 Photo Credits:
 Homepage/index: Photo by OLA Mishchenko on Unsplash. 
 Sandwich create/edit view: Photo by Elli O. on Unsplash. 
+Cheese sandwiches view: Photo by Pixzolo Photography on Unsplash
 Grilled sandwiches view: Photo by Asnim Asnim on Unsplash. 
 Open-faced sandwiches view: Photo by Anna Pelzer on Unsplash. 
 Peanut butter sandwiches view: pixabay.com.

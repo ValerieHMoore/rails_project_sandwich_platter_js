@@ -53,6 +53,10 @@ class SandwichesController < ApplicationController
         4.times {@sandwich.sandwich_fillings.build}
     end
 
+    def cheese
+        @sandwiches = Sandwich.cheese
+    end
+    
     def grilled
         @sandwiches = Sandwich.grilled
     end

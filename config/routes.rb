@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   root to: 'welcome#home'
 
+  get '/cheese' => 'sandwiches#cheese'
   get '/grilled' => 'sandwiches#grilled'
   get '/open_faced' => 'sandwiches#open_faced'
   get '/peanut_butter' => 'sandwiches#peanut_butter'

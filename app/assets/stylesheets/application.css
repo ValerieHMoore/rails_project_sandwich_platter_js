@@ -29,6 +29,12 @@ body{
     background-size: cover;
 }
 
+.cheese{
+    background-image: url("cheese3.jpg");
+    background-size: cover;
+}
+
+
 .peanut_butter{
     color: saddlebrown;
     background-image: url("peanut-butter4.jpg");
