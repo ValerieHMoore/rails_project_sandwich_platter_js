@@ -13,12 +13,14 @@ Spreads/Fillings:<br>
 </h3>
 <h5>
 <%= link_to "My Sandwiches", user_sandwiches_path(current_user) %><br>
-<%= link_to "All Sandwiches", sandwiches_path %><br>
 <%= link_to "Create a New Sandwich", new_user_sandwich_path(current_user) %><br>
+<br>
+<%= link_to "All Sandwiches", sandwiches_path %><br>
 <%= link_to "Cheese Sandwiches", cheese_path %><br>
 <%= link_to "Grilled Sandwiches", grilled_path %><br>
 <%= link_to "Open-Faced Sandwiches", open_faced_path %><br>
 <%= link_to "Peanut Butter Sandwiches", peanut_butter_path %><br>
+<br>
 <%= link_to "Log out", logout_path%><br>
 
 </h5>
