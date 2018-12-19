@@ -4,6 +4,7 @@ Description:
 Users can sign up or login to create, view and edit sandwich recipes.
 You can only Create, Update or Delete your own sandwiches.
 This application was built using Ruby on Rails 5 and free photos from Unsplash.com.
+You can watch a video walkthrough of this app here: https://youtu.be/3_nRXpG_umA
 
 Photo Credits:
 Homepage/index: Photo by OLA Mishchenko on Unsplash. 
