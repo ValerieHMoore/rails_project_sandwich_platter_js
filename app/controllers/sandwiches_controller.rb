@@ -6,11 +6,17 @@ class SandwichesController < ApplicationController
         if params[:user_id] && current_user.id == params[:user_id].to_i
           @user = current_user
           @sandwiches = @user.sandwiches.order(:sandwich_name)
+          respond_to do |f|
+            f.html {render :index}
+            f.json {render json: @sandwiches}
         elsif params[:user_id]
           flash[:alert] = "Leave my provolone! (You can't view another user's sandwiches)"
-          redirect_to sandwiches_path
         else
           @sandwiches = Sandwich.all.order(:sandwich_name)
+          respond_to do |f|
+            f.html {render :index}
+            f.json {render json: @sandwiches}
+          end
         end
     end
   
