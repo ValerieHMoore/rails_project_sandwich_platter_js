@@ -1,10 +1,10 @@
-Welcome to Rails_Project_Sandwich_Platter!
+Welcome to Rails_Project_Sandwich_Platter_JS!
 
 Description:
 Users can sign up or login to create, view and edit sandwich recipes.
 You can only Create, Update or Delete your own sandwiches.
-This application was built using Ruby on Rails 5 and free photos from Unsplash.com.
-You can watch a video walkthrough of this app here: https://youtu.be/3_nRXpG_umA
+This application was built with a JavaScript front end and a Ruby on Rails 5 back end.
+You can watch a video walkthrough of this app here:
 
 Photo Credits:
 Homepage/index: Photo by OLA Mishchenko on Unsplash. 
@@ -23,6 +23,6 @@ Type "rails s" in your terminal and navigate to localhost:3000 in your browser.
 Bon Appetit!
 
 Contributors Guide:
-Bug reports and pull requests are welcome on GitHub at https://github.com/ValerieHMoore/rails_project_sandwich_platter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant (http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ValerieHMoore/rails_project_sandwich_platter_js. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant (http://contributor-covenant.org) code of conduct.
 
 License: The code is available as open source under the terms of the MIT License (https://opensource.org/licenses/MIT).
