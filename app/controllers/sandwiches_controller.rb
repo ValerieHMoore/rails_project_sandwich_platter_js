@@ -29,9 +29,9 @@ class SandwichesController < ApplicationController
         @sandwich = Sandwich.new(sandwich_params)
         @user = User.find_by(id: params[:user_id])
         if @sandwich.save
-            redirect_to sandwich_path(@sandwich)
+            render json: @sandwich, status: 201
         else
-        render :new
+            render json: @sandwich, status: 406
         end
     end
 
