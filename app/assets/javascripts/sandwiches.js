@@ -18,7 +18,7 @@ class Sandwich {
 }
 
 function listenForClick() {
-	$('link#sandwiches-data').on('click', function (event) {
+	$('button#sandwiches-data').on('click', function (event) {
 		event.preventDefault()
 		getSandwiches()
 	})
