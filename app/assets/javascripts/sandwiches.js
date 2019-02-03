@@ -1,8 +1,6 @@
 $(function() {
-	console.log("Yes, my code is working!");
-	listenForClickMySandwiches();
-	listenForClickCreateNewSandwich();
-	listenForClickAllSandwiches();
+    console.log("Yes, my code is working!");
+    listenForClickAllSandwiches();
 })
 
 class Sandwich {
@@ -17,9 +15,9 @@ class Sandwich {
     }
 }
 
-function listenForClick() {
-	$('button#sandwiches-data').on('click', function (event) {
+function listenForClickAllSandwiches() {
+	$('button#all-sandwiches').on('click', function (event) {
 		event.preventDefault()
-		getSandwiches()
+		// getAllSandwiches()
 	})
 }
