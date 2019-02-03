@@ -1,4 +1,9 @@
-
+$(function() {
+	console.log("Yes, my code is working!");
+	listenForClickMySandwiches();
+	listenForClickCreateNewSandwich();
+	listenForClickAllSandwiches();
+})
 
 class Sandwich {
 	constructor(obj) {
