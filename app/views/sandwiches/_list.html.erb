@@ -1,10 +1,10 @@
-<h3>
-<%= link_to "All Sandwiches", sandwiches_path, class: "all_sandwiches" %><br>
-<%= link_to "Cheese Sandwiches", cheese_path, class: "cheese_sandwiches" %><br>
-<%= link_to "Grilled Sandwiches", grilled_path, class: "grilled_sandwiches" %><br>
-<%= link_to "Open-Faced Sandwiches", open_faced_path, class: "open_faced_sandwiches" %><br>
-<%= link_to "Peanut Butter Sandwiches", peanut_butter_path, class: "peanut_butter_sandwiches" %><br>
+<button id='all-sandwiches'>All Sandwiches</button><br>
+<button id='cheese-sandwiches'>Cheese Sandwiches</button><br>
+<button id='grilled-sandwiches'>Grilled Sandwiches</button><br>
+<button id='open-faced-sandwiches'>Open-Faced Sandwiches</button><br>
+<button id='peanut-butter-sandwiches'>Peanut Butter Sandwiches</button><br>
 <br>
+
 <%= link_to "My Sandwiches", user_sandwiches_path(current_user), class: "my_sandwiches" %><br>
 <%= link_to "Create a New Sandwich", new_user_sandwich_path(current_user), class: "create_sandwich" %><br>
 <br>
