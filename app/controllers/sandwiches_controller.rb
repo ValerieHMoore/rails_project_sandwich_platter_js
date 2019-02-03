@@ -9,6 +9,7 @@ class SandwichesController < ApplicationController
           respond_to do |f|
             f.html {render :index}
             f.json {render json: @sandwiches}
+          end
         elsif params[:user_id]
           flash[:alert] = "Leave my provolone! (You can't view another user's sandwiches)"
         else
