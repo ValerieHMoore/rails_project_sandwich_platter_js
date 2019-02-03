@@ -16,3 +16,10 @@ class Sandwich {
         this.quantity = obj.quantity
     }
 }
+
+function listenForClick() {
+	$('button#sandwiches-data').on('click', function (event) {
+		event.preventDefault()
+		getSandwiches()
+	})
+}
