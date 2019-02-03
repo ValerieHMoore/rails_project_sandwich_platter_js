@@ -1,5 +1,6 @@
 <body class=sandwiches-index>
 
+<div id='sandwiches-index'>
 <h2>
 <% if notice %>
 <p class="alert alert-success"><%= notice %></p>
@@ -8,8 +9,8 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 </h2>
+</div>
 
 <h1>Menus</h1>
 <%= render partial: 'list', locals: {user: @user, sandwich: @sandwich} %>
-
 </body>
