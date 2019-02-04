@@ -1,7 +1,6 @@
 $(function() {
     // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
-    getAllSandwiches();
 })
 
 class Sandwich {
