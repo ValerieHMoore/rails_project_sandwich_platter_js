@@ -16,8 +16,9 @@ class Sandwich {
 }
 
 function listenForClickAllSandwiches() {
-	$('button#all-sandwiches').on('click', function (event) {
-		event.preventDefault()
-		// getAllSandwiches()
-	})
+    const button = document.getElementById('all-sandwiches')
+    button.addEventListener('click', function(event) {
+         event.preventDefault();
+         console.log("This is my button")
+    })
 }
