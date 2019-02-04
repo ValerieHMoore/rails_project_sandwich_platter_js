@@ -1,6 +1,7 @@
 $(function() {
-    console.log("Yes, my code is working!");
+    // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
+    getAllSandwiches();
 })
 
 class Sandwich {
@@ -16,9 +17,20 @@ class Sandwich {
 }
 
 function listenForClickAllSandwiches() {
-    const button = document.getElementById('all-sandwiches')
-    button.addEventListener('click', function(event) {
-         event.preventDefault();
-         console.log("This is my button")
+    $('button#all-sandwiches').on('click', function (event) {
+        event.preventDefault()
+        // console.log("My button works")
+        getAllSandwiches()
     })
+}
+
+function getAllSandwiches() {
+	$.ajax({
+		url: 'http://localhost:3000/sandwiches',
+		method: 'get',
+		dataType: 'json'
+	}).done(function (data) {
+        console.log("the data is: ", data)
+
+	})
 }
