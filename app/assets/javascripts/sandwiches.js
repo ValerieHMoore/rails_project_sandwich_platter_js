@@ -17,7 +17,8 @@ class Sandwich {
 }
 
 function listenForClickAllSandwiches() {
-    $('button#all-sandwiches').on('click', function (event) {
+    let doc = document.getElementById('all-sandwiches')
+    doc.addEventListener('click', function (event) {
         event.preventDefault()
         // console.log("My button works")
         getAllSandwiches()
@@ -29,10 +30,9 @@ function getAllSandwiches() {
         let sandwiches = data
         // console.log(sandwiches)
         let emptystring = ""
-        sandwiches.forEach((sandwich, index) => {
+        sandwiches.forEach((sandwich) => {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
         });
         $("#get-sandwiches").html(emptystring)
-        // getOneSandwich()
     })
 }
