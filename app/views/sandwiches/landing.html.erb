@@ -1,6 +1,17 @@
 <body class=sandwiches-index>
 
-<h1>Sandwich Menus</h1>
+<h1>Menus</h1>
+<br>
+<button id='all-sandwiches'>All Sandwiches</button><br>
+<button id='cheese-sandwiches'>Cheese Sandwiches</button><br>
+<button id='grilled-sandwiches'>Grilled Sandwiches</button><br>
+<button id='open-faced-sandwiches'>Open-Faced Sandwiches</button><br>
+<button id='peanut-butter-sandwiches'>Peanut Butter Sandwiches</button><br>
+<h5>
+<%= link_to "My Sandwiches", user_sandwiches_path(current_user), class: "my_sandwiches" %><br>
+<%= link_to "Create a New Sandwich", new_user_sandwich_path(current_user), class: "create_sandwich" %><br>
+<%= link_to "Log out", logout_path%><br>
+<h5>
 
 <div id="ajax-content"></div>
 
