@@ -25,12 +25,14 @@ function listenForClickAllSandwiches() {
 }
 
 function getAllSandwiches() {
-	$.ajax({
-		url: 'http://localhost:3000/sandwiches',
-		method: 'get',
-		dataType: 'json'
-	}).done(function (data) {
-        console.log("the data is: ", data)
-
-	})
+    $.get("/sandwiches.json", function(data){
+        let sandwiches = data
+        // console.log(sandwiches)
+        let emptystring = ""
+        sandwiches.forEach((sandwich, index) => {
+            emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
+        });
+        $("#get-sandwiches").html(emptystring)
+        // getOneSandwich()
+    })
 }
