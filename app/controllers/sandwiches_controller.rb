@@ -2,6 +2,9 @@ class SandwichesController < ApplicationController
 
     before_action :require_login
 
+    def landing
+    end
+
     def index
         if params[:user_id] && current_user.id == params[:user_id].to_i
           @user = current_user
@@ -21,9 +24,6 @@ class SandwichesController < ApplicationController
         end
     end
 
-    def landing
-    end
-  
     def new
         if params[:user_id] && current_user.id == params[:user_id].to_i
         @user = current_user

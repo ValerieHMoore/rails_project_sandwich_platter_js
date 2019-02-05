@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsProjectSandwichPlatter</title>
+    <title>RailsProjectSandwichPlatterJS</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,21 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+<body>
+  <% if current_user %>
+  <h5>
+  <a id="my-sandwiches" href="/users/<%=current_user.id%>/sandwiches">My Sandwiches </a>
+  <br>
+  <a id="all-sandwiches" href="/sandwiches">All Sandwiches</a>
+  <br>
+  <a id="create-new-sandwich" href="/users/<%=current_user.id%>/sandwiches/new">Create a New Sandwich </a>
+  <br>
+  <%= link_to "Log out", logout_path%><br>
+  </h5>
+
+  <div id="get-one-sandwich"></div>
+  <%end%>
     <%= yield %>
-  </body>
+</body>
+
 </html>
