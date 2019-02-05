@@ -2,7 +2,7 @@ $(function() {
     // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
     listenForClickMySandwiches();
-    // listenForClickShowSandwich();
+    listenForClickShowSandwich();
 })
 
 class Sandwich {
@@ -72,5 +72,8 @@ function listenForClickShowSandwich() {
 }
 
 function getOneSandwich() {
-
+    $.get(url + ".json", function(data){
+    let sandwich = new Sandwich(data)            
+    $("#ajax-content").html(sandwich.construct())
+    })
 }
