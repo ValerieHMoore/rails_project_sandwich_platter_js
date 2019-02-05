@@ -1,6 +1,7 @@
 $(function() {
     // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
+    listenForClickMySandwiches();
 })
 
 class Sandwich {
@@ -29,12 +30,29 @@ function getAllSandwiches() {
         let sandwiches = data
         // console.log(sandwiches)
         let emptystring = ""
-        sandwiches.forEach((sandwich, index) => {
+        sandwiches.forEach((sandwich) => {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
-            emptystring += '<li ><href="sandwiches/' + sandwich["id"] + '">' + sandwich["sandwich_name"] + `</a>
-         <div id="${index}"` + recipe["description"] + '</div> </li>';
         });
-
         $("#get-sandwiches").html(emptystring)
+    })
+}
+
+function listenForClickMySandwiches() {
+    let doc = document.getElementById('my-sandwiches')
+    doc.addEventListener('click', function (event) {
+        event.preventDefault()
+        console.log("MySandwiches button works")
+        getMySandwiches()
+    })
+}
+
+function getMySandwiches() {
+    $.get("/users/1/sandwiches.json", function(data){
+        let mysandwiches = data
+        let emptystring = ""
+        mysandwiches.forEach((sandwich) => {
+            emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
+        });
+        $("#my-sandwiches").html(emptystring)
     })
 }
