@@ -2,6 +2,7 @@ $(function() {
     // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
     listenForClickMySandwiches();
+    listenForClickOneSandwich();
 })
 
 class Sandwich {
@@ -33,7 +34,7 @@ function getAllSandwiches() {
         sandwiches.forEach((sandwich) => {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
         });
-        $("#get-sandwiches").html(emptystring)
+        $("#get-sandwiches").html("<h3>All Sandwiches</h3>" + emptystring)
     })
 }
 
@@ -51,8 +52,8 @@ function getMySandwiches() {
         let mysandwiches = data
         let emptystring = ""
         mysandwiches.forEach((sandwich) => {
-            emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
+            emptystring += '<li>' + '<a href="#">' + sandwich["sandwich_name"] + '</a>' + '</li>';
         });
-        $("#my-sandwiches").html(emptystring)
+        $("#get-my-sandwiches").html("<h3>My Sandwiches</h3>" + emptystring)
     })
 }
