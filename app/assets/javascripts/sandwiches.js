@@ -29,9 +29,12 @@ function getAllSandwiches() {
         let sandwiches = data
         // console.log(sandwiches)
         let emptystring = ""
-        sandwiches.forEach((sandwich) => {
+        sandwiches.forEach((sandwich, index) => {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
+            emptystring += '<li ><href="sandwiches/' + sandwich["id"] + '">' + sandwich["sandwich_name"] + `</a>
+         <div id="${index}"` + recipe["description"] + '</div> </li>';
         });
+
         $("#get-sandwiches").html(emptystring)
     })
 }
