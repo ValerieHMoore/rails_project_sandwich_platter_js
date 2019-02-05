@@ -2,7 +2,7 @@ $(function() {
     // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
     listenForClickMySandwiches();
-    listenForClickShowSandwich();
+    // listenForClickShowSandwich();
 })
 
 class Sandwich {
@@ -42,13 +42,14 @@ function listenForClickMySandwiches() {
     let doc = document.getElementById('my-sandwiches')
     doc.addEventListener('click', function (event) {
         event.preventDefault()
-        // console.log("MySandwiches button works")
-        getMySandwiches()
+        // console.log(this.href)
+        const url = this.href
+        getMySandwiches(url)
     })
 }
 
-function getMySandwiches() {
-    $.get(`/users/1/sandwiches.json`, function(data){
+function getMySandwiches(url) {
+    $.get(url + `.json`, function(data){
         let mysandwiches = data
         let emptystring = ""
         mysandwiches.forEach((sandwich) => {
@@ -71,5 +72,5 @@ function listenForClickShowSandwich() {
 }
 
 function getOneSandwich() {
-    
+
 }
