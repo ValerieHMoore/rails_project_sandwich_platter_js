@@ -10,7 +10,11 @@ class Sandwich {
         this.id = attr.id
         this.fillings = attr.fillings
         this.sandwich_fillings = attr.sandwich_fillings
-		this.sandwich_name = attr.sandwich_name
+        this.sandwich_name = attr.sandwich_name
+        this.bread_name = attr.bread_name
+        this.grill = attr.grill
+        this.open_face = attr.open_face
+        this.user_id = attr.user_id
     }
 }
 
