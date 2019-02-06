@@ -6,14 +6,16 @@ $(function() {
 })
 
 class Sandwich {
-	constructor(obj) {
-		this.id = obj.id
-		this.sandwich_name = obj.sandwich_name
-        this.bread_name = obj.bread_name
-        this.grill = obj.grill
-        this.open_face = obj.open_face
-        this.filling_name = obj.filling_name
-        this.quantity = obj.quantity
+	constructor(attr) {
+        this.id = attr.id
+        this.fillings = attr.fillings
+        this.sandwich_fillings = attr.sandwich_fillings
+		this.sandwich_name = attr.sandwich_name
+        // this.bread_name = attr.bread_name
+        // this.grill = attr.grill
+        // this.open_face = attr.open_face
+        // this.filling_name = attr.filling_name
+        // this.quantity = attr.quantity
     }
 }
 
@@ -52,8 +54,8 @@ function getMySandwiches(url) {
     $.get(url + `.json`, function(data){
         let mysandwiches = data
         let emptystring = ""
-        mysandwiches.forEach((sandwich) => {
-            emptystring += '<li>' + '<a href="#" class="show-one-sandwich">' + sandwich["sandwich_name"] + '</a>' + '</li>';
+        mysandwiches.forEach((sandwich) => {        
+            emptystring += '<li>' + '<a class="show-one-sandwich" href="sandwiches/' + sandwich.id + '">' + sandwich["sandwich_name"] + '</a>' + '</li>';
         });
         $("#ajax-content").html(emptystring)
         listenForClickShowSandwich()
@@ -65,15 +67,27 @@ function listenForClickShowSandwich() {
     for (let i=0; i<doc.length; i++) {
         doc[i].addEventListener('click', function (event) {
         event.preventDefault()
-        console.log("Show me a sandwich!")
-        getOneSandwich()
+        // console.log(this)
+        const url = this.href
+        getOneSandwich(url)
     });
     }
 }
 
-function getOneSandwich() {
+function getOneSandwich(url) {
     $.get(url + ".json", function(data){
+        debugger
     let sandwich = new Sandwich(data)            
     $("#ajax-content").html(sandwich.construct())
     })
 }
+
+Sandwich.prototype.construct = function() {
+    let html = `<h1>${this.sandwich_name}</h1>`
+    for (let i = 0; i < this.sandwich_fillings.length; i++) {
+        html += `<li>${this.fillings[i].filling_name} ${this.sandwich_fillings[i].quantity}</li>`
+    }
+    return html
+}
+
+
