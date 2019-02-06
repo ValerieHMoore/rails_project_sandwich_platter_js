@@ -1,8 +1,8 @@
 $(function() {
-    // console.log("Yes, my code is working!");
     listenForClickAllSandwiches();
     listenForClickMySandwiches();
     listenForClickShowSandwich();
+    listenForClickCreateSandwich();
 })
 
 class Sandwich {
@@ -11,11 +11,6 @@ class Sandwich {
         this.fillings = attr.fillings
         this.sandwich_fillings = attr.sandwich_fillings
 		this.sandwich_name = attr.sandwich_name
-        // this.bread_name = attr.bread_name
-        // this.grill = attr.grill
-        // this.open_face = attr.open_face
-        // this.filling_name = attr.filling_name
-        // this.quantity = attr.quantity
     }
 }
 
@@ -23,7 +18,6 @@ function listenForClickAllSandwiches() {
     let doc = document.getElementById('all-sandwiches')
     doc.addEventListener('click', function (event) {
         event.preventDefault()
-        // console.log("My button works")
         getAllSandwiches()
     })
 }
@@ -31,7 +25,6 @@ function listenForClickAllSandwiches() {
 function getAllSandwiches() {
     $.get("/sandwiches.json", function(data){
         let sandwiches = data
-        // console.log(sandwiches)
         let emptystring = ""
         sandwiches.forEach((sandwich) => {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
@@ -44,7 +37,6 @@ function listenForClickMySandwiches() {
     let doc = document.getElementById('my-sandwiches')
     doc.addEventListener('click', function (event) {
         event.preventDefault()
-        // console.log(this.href)
         const url = this.href
         getMySandwiches(url)
     })
@@ -67,7 +59,6 @@ function listenForClickShowSandwich() {
     for (let i=0; i<doc.length; i++) {
         doc[i].addEventListener('click', function (event) {
         event.preventDefault()
-        // console.log(this)
         const url = this.href
         getOneSandwich(url)
     });
@@ -76,7 +67,6 @@ function listenForClickShowSandwich() {
 
 function getOneSandwich(url) {
     $.get(url + ".json", function(data){
-        debugger
     let sandwich = new Sandwich(data)            
     $("#ajax-content").html(sandwich.construct())
     })
@@ -90,4 +80,11 @@ Sandwich.prototype.construct = function() {
     return html
 }
 
-
+function listenForClickCreateSandwich() {
+    let doc = document.getElementById("create-new-sandwich")
+    doc.addEventListener('click', function (event) {
+        event.preventDefault()
+        console.log("I clicked Create Sandwich!")
+        
+    })
+}
