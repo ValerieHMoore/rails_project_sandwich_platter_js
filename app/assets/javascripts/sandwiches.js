@@ -103,15 +103,30 @@ function getBlankSandwichForm(url) {
 }
 
 function listenForSubmitSandwich() {
-    let doc = document.getElementById("blank-sandwich-form")
+    let doc = document.getElementById("new_sandwich")
     doc.addEventListener('submit', function (event) {
         event.preventDefault()
-        let data = $(this).serialize()
+        console.log(this)
+        let data = $(this).serialize();
         let url = this.action;
         postSandwichData(url, action)
     })
 }
 
-function postSandwichData() {
-
+function postSandwichData(url, action) {
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        success: response => {
+          const mySandwich = new Sandwich(response);
+          document.getElementById("ajax-content").innerHTML = mySandwich.construct();      
+        },
+        error: response => {
+          const customMessage = "<h3>Everyone knows that a sandwich must have a name and a bread!</h3>"
+          document.getElementById("ajax-content").innerHTML = customMessage;
+        }
+    })
 }
+
+    
