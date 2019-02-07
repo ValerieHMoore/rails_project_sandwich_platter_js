@@ -89,14 +89,15 @@ function listenForClickCreateSandwich() {
     doc.addEventListener('click', function (event) {
         event.preventDefault()
         const url = this.attributes.href.textContent;
-        getNewSandwichFormData(url)
+        getBlankSandwichForm(url)
     })
 }
 
-function getNewSandwichForm(url) {
+function getBlankSandwichForm(url) {
     const fullUrl = url + "?layout=false"
     $.get(fullUrl).done(function(resp){
         $("#ajax-content").html(resp)
+       
     })
 }
 
