@@ -103,8 +103,8 @@ function getBlankSandwichForm(url) {
 }
 
 function listenForSubmitSandwich() {
-    let doc = document.getElementById("new_sandwich")
-    doc.addEventListener('click', function (event) {
+    let doc = document.getElementById("blank-sandwich-form")
+    doc.addEventListener('submit', function (event) {
         event.preventDefault()
         console.log("I hear the new sandwich!")
     })
