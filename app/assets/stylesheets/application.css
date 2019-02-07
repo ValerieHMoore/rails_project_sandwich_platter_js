@@ -12,7 +12,7 @@ body{
   }
 
 .sandwiches-index{
-    color: saddlebrown;
+    color: #66c2ff;
     background-image: url("sandwich-index.jpg");
     background-size: cover;
 }
