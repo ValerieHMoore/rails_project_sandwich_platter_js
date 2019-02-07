@@ -93,7 +93,7 @@ function listenForClickCreateSandwich() {
     })
 }
 
-function getNewSandwichFormData(url) {
+function getNewSandwichForm(url) {
     const fullUrl = url + "?layout=false"
     $.get(fullUrl).done(function(resp){
         $("#ajax-content").html(resp)
