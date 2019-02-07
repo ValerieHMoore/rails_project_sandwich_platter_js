@@ -11,16 +11,16 @@
 
 <body>
   <% if current_user %>
+  <h1>Sandwich Choices</h1>
   <h5>
   <a id="my-sandwiches" href="/users/<%=current_user.id%>/sandwiches">My Sandwiches </a>
   <br>
   <a id="all-sandwiches" href="/sandwiches">All Sandwiches</a>
   <br>
-  <a id="create-new-sandwich" href="/users/<%=current_user.id%>/sandwiches/new">Create a New Sandwich </a>
+  <a id="create-new-sandwich" href="/users/<%=current_user.id%>/sandwiches/new">Build a New Sandwich </a>
   <br>
   <%= link_to "Log out", logout_path%><br>
   </h5>
-
   <%end%>
     <%= yield %>
 </body>

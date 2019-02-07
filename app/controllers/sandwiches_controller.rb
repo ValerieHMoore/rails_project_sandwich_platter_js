@@ -26,12 +26,17 @@ class SandwichesController < ApplicationController
 
     def new
         if params[:user_id] && current_user.id == params[:user_id].to_i
-        @user = current_user
-        @sandwich = Sandwich.new(user_id: params[:user_id])
-        8.times {@sandwich.sandwich_fillings.build}
+            @user = current_user
+            @sandwich = Sandwich.new(user_id: params[:user_id])
+            8.times {@sandwich.sandwich_fillings.build}
+            if params[:layout] && params[:layout] == "false"
+                render :new, layout: false
+            else
+                render :new
+            end
         else
-        flash[:alert] = "Leave my provolone! (You can't create a sandwich for another user)"
-        redirect_to sandwiches_path
+            flash[:alert] = "Leave my provolone! (You can't create a sandwich for another user)"
+            redirect_to sandwiches_path
       end
     end
 

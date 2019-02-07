@@ -88,10 +88,15 @@ function listenForClickCreateSandwich() {
     let doc = document.getElementById("create-new-sandwich")
     doc.addEventListener('click', function (event) {
         event.preventDefault()
-        // console.log("I clicked Create Sandwich!")
         const url = this.attributes.href.textContent;
-        $.get(url).done(function(resp){
-            $("#ajax-content").html(resp)
+        getNewSandwichFormData(url)
     })
-})
 }
+
+function getNewSandwichFormData(url) {
+    const fullUrl = url + "?layout=false"
+    $.get(fullUrl).done(function(resp){
+        $("#ajax-content").html(resp)
+    })
+}
+
