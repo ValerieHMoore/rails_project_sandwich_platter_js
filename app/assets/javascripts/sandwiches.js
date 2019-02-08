@@ -3,7 +3,7 @@ $(function() {
     listenForClickMySandwiches();
     listenForClickShowSandwich();
     listenForClickCreateSandwich();
-    listenForSubmitSandwich();
+    listenForClickSubmitSandwich();
 })
 
 class Sandwich {
@@ -105,7 +105,7 @@ function getBlankSandwichForm(url) {
     })
 }
 
-function listenForSubmitSandwich() {
+function listenForClickSubmitSandwich() {
     let doc = document.getElementById("new_sandwich")
     doc.addEventListener('submit', function (event) {
         event.preventDefault()
