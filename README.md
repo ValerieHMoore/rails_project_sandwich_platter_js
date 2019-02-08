@@ -1,12 +1,12 @@
 Welcome to Rails_Project_Sandwich_Platter_JS!
 
 Description:
-Users can sign up or login to create, view and edit sandwich recipes.
-You can only Create, Update or Delete your own sandwiches.
+Users can sign up or login to view and create sandwich recipes.
 This application was built with a JavaScript front end and a Ruby on Rails 5 back end.
-You can watch a video walkthrough of this app here:
+You can watch a video walkthrough of this app here: 
 
 Photo Credits:
+Rails JS Landing page: Photo by OLA Mishchenko on Unsplash.
 Homepage/index: Photo by OLA Mishchenko on Unsplash. 
 Sandwich create/edit view: Photo by Elli O. on Unsplash. 
 Cheese sandwiches view: Photo by OLA Mishchenko on Unsplash.
