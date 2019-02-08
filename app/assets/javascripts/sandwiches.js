@@ -78,7 +78,10 @@ function getOneSandwich(url) {
 }
 
 Sandwich.prototype.construct = function() {
-    let html = `<h1>${this.sandwich_name}</h1>`
+    let html = `
+    <h2>${this.sandwich_name}</h2>
+    <h4>${this.bread_name} Bread</h4>
+    `
     for (let i = 0; i < this.sandwich_fillings.length; i++) {
         html += `<li>${this.fillings[i].filling_name} ${this.sandwich_fillings[i].quantity}</li>`
     }
