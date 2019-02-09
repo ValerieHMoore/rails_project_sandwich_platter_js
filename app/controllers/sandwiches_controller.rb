@@ -70,34 +70,18 @@ class SandwichesController < ApplicationController
 
     def cheese
         @sandwiches = Sandwich.cheese
-        respond_to do |f|
-            f.html {}
-            f.json {render json: @sandwiches}
-          end
     end
     
     def grilled
         @sandwiches = Sandwich.grilled
-        respond_to do |f|
-            f.html {}
-            f.json {render json: @sandwiches}
-          end
     end
 
     def open_faced
         @sandwiches = Sandwich.open_faced
-        respond_to do |f|
-            f.html {}
-            f.json {render json: @sandwiches}
-          end
     end
 
     def peanut_butter
         @sandwiches = Sandwich.peanut_butter
-        respond_to do |f|
-            f.html {}
-            f.json {render json: @sandwiches}
-          end
     end
 
     def update
