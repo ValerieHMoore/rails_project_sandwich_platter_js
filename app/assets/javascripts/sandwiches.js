@@ -106,8 +106,8 @@ function getBlankSandwichForm(url) {
 }
 
 function listenForClickSubmitSandwich() {
-    let doc = document.getElementById("new_sandwich")
-    doc.addEventListener('submit', function (event) {
+    let form = document.getElementById("new_sandwich")
+    form.addEventListener('submit', function (event) {
         event.preventDefault()
         let data = $(this).serialize();
         let url = this.action;
