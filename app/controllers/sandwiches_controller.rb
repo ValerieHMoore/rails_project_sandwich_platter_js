@@ -24,11 +24,6 @@ class SandwichesController < ApplicationController
         end
     end
 
-    # def search      
-    #     @sandwiches = Sandwich.all.select{ |sandwich| sandwich.sandwich_name.downcase.include?(params[:sandwich][:search].downcase)}
-    #     render json: @sandwiches
-    # end
-
     def new
         if params[:user_id] && current_user.id == params[:user_id].to_i
             @user = current_user

@@ -21,6 +21,5 @@ Rails.application.routes.draw do
   
   get'/landing', to: "sandwiches#landing"
   post '/landing', to: "sandwiches#landing"
-  # post '/search', :to => "sandwiches#search"
 
 end
