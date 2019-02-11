@@ -30,7 +30,12 @@ function listenForClickAllSandwiches() {
 function getAllSandwiches() {
     $.get("/sandwiches.json", function(data){
         let sandwiches = data
-        let emptystring = ""
+        let emptystring = `<form id="search-box" action="/#" method="post">
+        Search: <input type="text" name="sandwich_name"><br>
+        <input type="submit" value="Submit">
+        <br>
+        <br>
+      </form>`
         sandwiches.forEach((sandwich) => {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
         });

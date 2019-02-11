@@ -1,4 +1,11 @@
 <h3>
+
+<%= form_tag  do %>
+<%=text_field_tag 'Search'%><br>
+<input type="submit" value="Submit">
+<p>
+<%end%>
+
 <%@sandwiches.each do |sandwich|%>
 <%= link_to sandwich.sandwich_name, sandwich_path(sandwich)%>
 <br>
