@@ -27,6 +27,11 @@ function listenForClickAllSandwiches() {
     })
 }
 
+// <%= form_tag search_path, :method => :post, :id => "SearchForm" do %>
+//     <%= text_field_tag :search, params[:search], placeholder: 'Search your favourite products or brands', :autocomplete => :off, :id => 'SearchSearch'  %> 
+//     <%= image_submit_tag('nav_bar/search.png', title: 'Search', class: 'search_submit', data: { "placement" => "bottom" }) %>
+// <% end %>   
+
 function getAllSandwiches() {
     $.get("/sandwiches.json", function(data){
         let sandwiches = data
@@ -40,6 +45,10 @@ function getAllSandwiches() {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
         });
         $("#ajax-content").html(emptystring)
+        emptystring.addEventListener('submit', function(event) {
+            event.preventDefault()
+        
+        })
     })
 }
 
