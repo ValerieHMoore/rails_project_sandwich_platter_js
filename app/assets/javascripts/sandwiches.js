@@ -45,11 +45,18 @@ function getAllSandwiches() {
             emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
         });
         $("#ajax-content").html(emptystring)
-        emptystring.addEventListener('submit', function(event) {
+        let form = document.getElementById("search-box")
+        form.addEventListener('submit', function(event) {
             event.preventDefault()
-        
+            let searchresults = this.sandwich_name.value
+            let filtered = sandwiches.filter(sandwich => sandwich.sandwich_name.toLowerCase().includes(searchresults.toLowerCase()))
+            emptystring = ""
+            filtered.forEach((sandwich) => {
+                emptystring += '<li>' + sandwich["sandwich_name"] + '</li>';
+            });
+            $("#ajax-content").html(emptystring)
         })
-    })
+})
 }
 
 function listenForClickMySandwiches() {

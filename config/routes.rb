@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   
   get'/landing', to: "sandwiches#landing"
   post '/landing', to: "sandwiches#landing"
-  match 'search(/:search)', :to => 'sandwiches#search', :as => :search, via: [:get, :post]
+  # post '/search', :to => "sandwiches#search"
 
 end

@@ -8,7 +8,7 @@ class SandwichesController < ApplicationController
     def index
         if params[:user_id] && current_user.id == params[:user_id].to_i
           @user = current_user
-          @sandwiches = @user.sandwiches.order(:sandwich_name)
+          @sandwiches = @user.sandwiches.order(:sandwich_name) || 
           respond_to do |f|
             f.html {render :index}
             f.json {render json: @sandwiches}
@@ -24,13 +24,10 @@ class SandwichesController < ApplicationController
         end
     end
 
-    def search      
-        @products = Sandwich.search(params[:search])
-        respond_to do |format|
-         format.js  { render :partial => "elements/livesearch", :locals => {:search => @sandwiches, :query => params[:search]} }
-         format.html    { render :index }
-        end
-    end
+    # def search      
+    #     @sandwiches = Sandwich.all.select{ |sandwich| sandwich.sandwich_name.downcase.include?(params[:sandwich][:search].downcase)}
+    #     render json: @sandwiches
+    # end
 
     def new
         if params[:user_id] && current_user.id == params[:user_id].to_i
@@ -108,7 +105,7 @@ class SandwichesController < ApplicationController
 
     def sandwich_params
         params.require(:sandwich).permit(
-            :sandwich_name, :bread_name, :grill, :open_face, :search, :user_id, 
+            :sandwich_name, :bread_name, :grill, :open_face, :user_id, 
                 sandwich_fillings_attributes: [:id, :quantity, :filling_name])
     end
 
